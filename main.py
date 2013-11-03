@@ -20,7 +20,9 @@ def kickoff():
 
 def grab_article(url):
     origUrl = url
+    # -- Append parameter for print friendly mode
     url = url[:url.find('?')] + "?pagewanted=print"
+    # -- Must set Referer or we won't get print friendly page
     headers = {'Referer': origUrl}
     print "Sending HTTP req..."
     page = requests.get(url, headers=headers)
@@ -31,7 +33,7 @@ def grab_article(url):
     print "Making pdf..."
     pdfkit.from_file('tmp.html', 'tmp.pdf')
     print "Printing..." 
-    # os.system('lpr tmp.pdf') # -- uses default printer 
+    os.system('lpr tmp.pdf') # -- uses default printer 
 
 if __name__ == '__main__':
     kickoff()
