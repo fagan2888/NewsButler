@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
 
 '''
-Run every saturday at 7:30am
-30 7 * * Sat /usr/bin/find
+To run every Sunday at 7:30am using cron:
+30 7 * * Sun /path/to/me/main.py
 '''
 
